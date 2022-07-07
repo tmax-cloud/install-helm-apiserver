@@ -18,7 +18,7 @@ else
 fi
 
 echo "================== get console host =================="
-export consoleHost=$(kubectl get ingressroute -n api-gateway-system console -o jsonpath='{@.spec.routes[0].match}' | awk '{print $6}' | cut -d'`' -f2)
+export consoleHost=$(kubectl get ingressroute -n api-gateway-system console -o jsonpath='{@.spec.routes[0].match}' | awk '{print $6}' | cut -d'`' -f2 | sed 's/console/helm/g')
 
 # change parameters
 sed -i "s|{imageRegistry}|${imageRegistry}|g" ${yaml_dir}/deploy.yaml
