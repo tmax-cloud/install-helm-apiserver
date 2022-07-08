@@ -24,6 +24,7 @@ export consoleHost=$(kubectl get ingressroute -n api-gateway-system console -o j
 sed -i "s|{imageRegistry}|${imageRegistry}|g" ${yaml_dir}/deploy.yaml
 sed -i "s|{helmApiServerVersion}|${helmApiServerVersion}|g" ${yaml_dir}/deploy.yaml
 sed -i "s|{consoleHost}|${consoleHost}|g" ${install_dir}/ingress.yaml
+sed -i "s|{scName}|${scName}|g" ${install_dir}/pvc.yaml
 
 # install
 kubectl apply -f ${yaml_dir}/pvc.yaml 
