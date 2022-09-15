@@ -10,10 +10,14 @@ HyperCloud에서 Kubernetes package manager인 Helm service를 쉽게 사용할 
 - 목적 : `helm api server 설치 진행을 위한 config 설정`
 - 순서 : 
   - 환경에 맞는 config 내용을 작성합니다.
-     - imageRegistry={IP}:{PORT}
-       - ex : imageRegistry=172.22.11.2:30500
-     - helmApiServerVersion={helm api server version}
-       - ex : helmApiServerVersion=0.0.0
+     - imageRegistry: image registry 작성
+       - default: docker.io
+     - helmApiServerVersion: helm api server version
+       - ex : helmApiServerVersion=0.0.1
+     - consoleHost: HyperCloud domain host 작성
+       - ex : tmaxcloud.org
+     - storageClass: storage class 이름 작성
+       - ex : storageClass=nfs
 
 ## Step2. install-template
 - 목적 : `helm api server 설치 진행을 위한 shell script 실행`
