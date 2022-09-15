@@ -10,13 +10,16 @@ metadata:
 spec:
   ingressClassName: tmax-cloud
   rules:
-  - host: {consoleHost}
+  - host: helm.{consoleHost}
     http:
       paths:
       - backend:
           service:
             name: helm-apiserver
             port: 
-              number: 80
-        path: /helm
+              number: 443
+        path: /
         pathType: Prefix
+  tls:
+  - hosts:
+    - helm.{consoleHost}
